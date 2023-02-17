@@ -1,0 +1,15 @@
+var code := http("GET", "https://raw.githubusercontent.com/JacquesTur/Ninext/main/loadModules.html").result;
+
+dialog("Ninext intialization", "<script>
+window.exConfigLoadModules = {
+    completion: false,
+    badges: true,
+    evalJS: true,
+    viewEvent: true,
+    buttonEvent : true,
+    fieldsInspector: true,
+    nativeJS: true,
+
+    autoCloseDialog: false
+};
+</script>" + code, ["close"])

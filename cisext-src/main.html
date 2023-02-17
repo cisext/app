@@ -1,0 +1,800 @@
+<head>
+    <style id='ninexStyles'>
+      .exCommunBadge {
+        position: absolute;
+        display: flex;
+        top: 0px;
+        right: 0px;
+        background-color: red;
+        height: 15px;
+        line-height: 15px;
+        width: auto;
+        min-width: 11px;
+        padding-left: 2px;
+        padding-right: 2px;
+        text-align: center;
+        border-radius: 8px;
+        color: white;
+        justify-content: center;
+        font-size: smaller;
+      }
+  
+      .exButtonBadge {
+        position: absolute;
+        display: flex;
+        top: 0px;
+        right: 0px;
+        background-color: red;
+        height: 15px;
+        line-height: 15px;
+        width: auto;
+        min-width: 11px;
+        padding-left: 2px;
+        padding-right: 2px;
+        text-align: center;
+        border-radius: 8px;
+        color: white;
+        justify-content: center;
+        font-size: smaller;
+      }
+  
+      .exFieldBadge {
+  
+        position: relative;
+        display: inline-flex;
+        top: 0px;
+        right: 0px;
+        background-color: red;
+        height: 15px;
+        line-height: 15px;
+        width: auto;
+        min-width: 11px;
+        padding-left: 2px;
+        padding-right: 2px;
+        text-align: center;
+        border-radius: 8px;
+        color: white;
+        justify-content: center;
+        font-size: smaller;
+        cursor: pointer;
+  
+        /*     
+    display: inline-block;
+        height: 0;
+        width: 0;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid red;
+        border-left: 15% solid transparent; 
+        */
+      }
+  
+      .exFieldBadgeLevel0 {
+        border-radius: 0;
+        background-color: red;
+      }
+  
+      .exFieldBadgeLevel1 {
+        border-radius: 25%;
+        background-color: orange;
+      }
+  
+      .exFieldBadgeLevel2 {
+        border-radius: 50%;
+        background-color: green;
+      }
+  
+      .exBadgeTriangle {
+        display: inline-block;
+        height: 0;
+        width: 0;
+        border-right: 12px solid transparent;
+        border-bottom: 18px solid;
+        border-left: 12px solid transparent;
+        position: absolute;
+        left: -4px;
+        border-bottom-color: red;
+      }
+  
+      .exHeaderContainer {
+        display: flex;
+        position: sticky;
+        position: -webkit-sticky;
+        background-color: lightgray;
+        z-index: 10;
+        width: 100%;
+        top: 0px;
+      }
+  
+      .exlistFields {
+        width: 50%;
+        margin: 3px;
+      }
+  
+      .exFieldDetailContainer {
+        display: inline-block;
+        visibility: visible;
+        transition: all 0.3s;
+        width: 100%;
+  
+      }
+  
+  
+      .exFieldDetail {
+        vertical-align: middle;
+        padding-left: 5px;
+        margin-left: 15px;
+        border-bottom: 1px solid #eff1f9;
+      }
+  
+      .exFieldDetailTitle {
+        display: flex;
+        align-items: center;
+      }
+  
+      .exFieldDetailTitle:hover .exFieldDetailEditIcon {
+        display: block;
+      }
+  
+      .exFieldDetailTitle-title {
+        width: 100%;
+        overflow: hidden;
+        margin-left: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+  
+      .exFieldDetailEditIcon {
+        width: 28px;
+        height: 28px;
+        background-color: #d73e14;
+        border-radius: 3px;
+        min-width: 28px;
+        float: right;
+        cursor: pointer;
+        display: none;
+      }
+  
+      .exFieldDetailEditButton {
+        width: 28px;
+        height: 28px;
+        background-color: #d73e14;
+        border-radius: 3px;
+        min-width: 28px;
+        float: right;
+        cursor: pointer;
+        display: none;
+      }
+  
+      .exFieldDetailLevel0 {
+        min-width: 6px;
+        height: 10px;
+        border-radius: 0;
+        color: red;
+      }
+  
+      .exFieldDetailLevel1 {
+        min-width: 6px;
+        height: 10px;
+        border-radius: 25%;
+        color: orange
+      }
+  
+      .exFieldDetailLevel2 {
+        min-width: 6px;
+        height: 10px;
+        border-radius: 50%;
+        color: green
+      }
+  
+      .exFieldCode {
+        display: none;
+        transition: all 1000ms ease-out;
+        background-color: beige;
+        white-space: break-spaces;
+        margin-left: 15px;
+        margin-top: 0px;
+        width: 100%;
+      }
+  
+      .exFieldTitle {
+        display: flex;
+        margin-left: 15px;
+        background-color: #eff1f9;
+        padding: 5px;
+        font-weight: bold;
+      }
+  
+      .exfieldTitle {
+        margin-left: 3px;
+      }
+  
+  
+      .exSearch {
+        box-sizing: border-box;
+        background-image: url('searchicon.png');
+        background-position: 14px 12px;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 14px 20px 12px 45px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+      }
+  
+      .exSearch:focus {
+        outline: 3px solid #ddd;
+      }
+  
+      .exPopup {
+        z-index: 20;
+        border: 1px solid white;
+        background-color: white;
+        min-width: 100px;
+        min-height: 60px;
+        max-height: 95%;
+        max-width: 95%;
+        width: 300px;
+        height: 100px;
+  
+        position: absolute;
+        box-shadow: 0px 0px 5px black;
+        border-radius: 5px;
+  
+        overflow: hidden;
+        resize: both;
+  
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+  
+        display: flex;
+        flex-direction: column;
+  
+      }
+  
+      .exPopup .exPopup-bar {
+        width: 100%;
+        flex-shrink: 0;
+  
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: move;
+        background-color: #666666;
+        color: white;
+        border-radius: 4px;
+        height: auto;
+        font-family: NotoSans, sans-serif;
+        font-size: 13px;
+      }
+  
+      .exPopup-bar .exPopup-title {
+        width: 100%;
+        text-align: center;
+      }
+  
+  
+      .exPopup .exPopup-bar .exPopup-close {
+        /* margin-right: 5px; */
+        cursor: pointer;
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+  
+      .exPopup-body {
+        margin-bottom: 10px;
+        flex-grow: 1;
+        overflow: scroll;
+      }
+  
+  
+      .exPopup-header {
+        width: 100%;
+  
+        display: flex;
+        flex-wrap: nowrap;
+        flex-grow: 0;
+        flex-shrink: 0;
+        align-items: stretch;
+        /* overflow: hidden; */
+  
+        flex-direction: row;
+        background-color: #566eb1;
+        color: #262f4d;
+        font-family: NotoSans, sans-serif;
+        font-size: 13px;
+      }
+  
+      .exPopup-tab {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 24px;
+        overflow: hidden;
+        padding-left: 8px;
+        padding-right: 8px;
+        text-align: center;
+        text-overflow: ellipsis;
+  
+  
+      }
+  
+      .exPopup-tab-selected {
+        border-radius: 3px;
+        background-color: white;
+        color: #566eb1;
+  
+      }
+  
+      .exPopup-simpleTabSelect {
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+      }
+  
+      .exPopup-simpleTabSelect:hover {
+        background-color: #ffffff22;
+      }
+  
+      .exPopup-simpleTabSelect:active {
+        background-color: #edf1ff;
+        color: #3059f0;
+      }
+  
+      .exPopup-container-tab {
+        flex: 0 0 auto;
+        flex-grow: 1;
+        margin: 0px 2px 0px 2px;
+      }
+  
+      .exPopup-container-tab-header {
+  
+        flex-wrap: wrap;
+        flex-shrink: 1;
+        padding: 3px 0px 3px 0px;
+        cursor: move;
+      }
+  
+      .exPopup-container-tab-button {
+        display: flex;
+        width: auto;
+        flex-shrink: 0;
+        margin: 3px 3px 3px 3px;
+      }
+  
+  
+      .exPopup-container-tab.tab-handle {
+        padding: 0;
+        align-self: center;
+        flex-grow: 0;
+        cursor: move;
+      }
+  
+      .exPopup-container-tab.tab-close {
+        padding: 0;
+        align-self: center;
+        flex-grow: 0;
+      }
+  
+      .exDebug {
+        background-color: white;
+      }
+  
+      .exDebug-header {
+        background-color: lightgray;
+        cursor: unset;
+        display: flex;
+        position: -webkit-sticky;
+        position: sticky;
+        width: 100%;
+        top: 0px;
+      }
+  
+      .exDebug-header-tab {
+        background-color: lightgray;
+      }
+  
+  
+      .exDebug-header-emptySpace {
+        width: auto;
+      }
+  
+      .exDebug-body {
+        background-color: white;
+        -webkit-touch-callout: initial;
+        -webkit-user-select: auto;
+        -khtml-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+      }
+  
+      .exDebug-line {
+        border-top: 1px solid lightgray;
+        line-height: 1.5em;
+      }
+  
+      .exDebug-line:hover {
+        background-color: #8ea5f64a
+      }
+  
+      .exDebug-line:active {
+        background-color: #8ea5f64a
+      }
+  
+  
+      .exDebug-icon-debug-white {
+        border-radius: 3px;
+        margin-right: 3px;
+        background-image: url("data:image/svg+xml,%0A%3Csvg version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='-3 -3 40 40' style='enable-background:new 0 0 32 32;' xml:space='preserve'%3E%3Cpath fill='white' stroke='none' d='M28.2,23.8l-4.5-4.5c0,0,0,0,0,0c0.9-1.6,1.3-3.4,1.3-5.3c0-6.1-4.9-11-11-11S3,7.9,3,14s4.9,11,11,11 c1.9,0,3.7-0.5,5.3-1.3c0,0,0,0,0,0l4.5,4.5c0.6,0.6,1.4,0.9,2.2,0.9s1.6-0.3,2.2-0.9C29.4,27,29.4,25,28.2,23.8z M21,15h-2.1 c-0.1,0.6-0.4,1.2-0.7,1.8l1.5,1.5c0.4,0.4,0.4,1,0,1.4C19.5,19.9,19.3,20,19,20s-0.5-0.1-0.7-0.3l-1.5-1.5C16,18.7,15,19,14,19 s-2-0.3-2.8-0.8l-1.5,1.5C9.5,19.9,9.3,20,9,20s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.5-1.5c-0.3-0.5-0.6-1.1-0.7-1.8H7 c-0.6,0-1-0.4-1-1s0.4-1,1-1h2.1c0.1-0.6,0.4-1.2,0.7-1.8L8.3,9.7c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.5,1.5 c0.3-0.2,0.5-0.3,0.8-0.4c0-0.1,0-0.3,0-0.4c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.1,0,0.3,0,0.4c0.3,0.1,0.5,0.3,0.8,0.4l1.5-1.5 c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.5,1.5c0.3,0.5,0.6,1.1,0.7,1.8H21c0.6,0,1,0.4,1,1S21.6,15,21,15z'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+  
+      .exDebug-icon-debug-white:hover {
+        background-color: #8ea5f64a
+      }
+  
+      .exDebug-icon-debug-selected {
+        border-radius: 3px;
+        margin-right: 3px;
+        background-color: white;
+        background-image: url("data:image/svg+xml,%0A%3Csvg version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='-3 -3 40 40' style='enable-background:new 0 0 32 32;' xml:space='preserve'%3E%3Cpath fill='rgb(73, 112, 255)' stroke='none' d='M28.2,23.8l-4.5-4.5c0,0,0,0,0,0c0.9-1.6,1.3-3.4,1.3-5.3c0-6.1-4.9-11-11-11S3,7.9,3,14s4.9,11,11,11 c1.9,0,3.7-0.5,5.3-1.3c0,0,0,0,0,0l4.5,4.5c0.6,0.6,1.4,0.9,2.2,0.9s1.6-0.3,2.2-0.9C29.4,27,29.4,25,28.2,23.8z M21,15h-2.1 c-0.1,0.6-0.4,1.2-0.7,1.8l1.5,1.5c0.4,0.4,0.4,1,0,1.4C19.5,19.9,19.3,20,19,20s-0.5-0.1-0.7-0.3l-1.5-1.5C16,18.7,15,19,14,19 s-2-0.3-2.8-0.8l-1.5,1.5C9.5,19.9,9.3,20,9,20s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.5-1.5c-0.3-0.5-0.6-1.1-0.7-1.8H7 c-0.6,0-1-0.4-1-1s0.4-1,1-1h2.1c0.1-0.6,0.4-1.2,0.7-1.8L8.3,9.7c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.5,1.5 c0.3-0.2,0.5-0.3,0.8-0.4c0-0.1,0-0.3,0-0.4c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.1,0,0.3,0,0.4c0.3,0.1,0.5,0.3,0.8,0.4l1.5-1.5 c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.5,1.5c0.3,0.5,0.6,1.1,0.7,1.8H21c0.6,0,1,0.4,1,1S21.6,15,21,15z'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+  
+      .ninext-nested {
+        display: none;
+      }
+  
+      .ninext-active {
+        display: block;
+      }
+  
+      .ninext-fliterbox {
+        width: auto !important;
+        background-color: #ffe5e0;
+        border: 1px solid #e64e29;
+        position: initial !important;
+        height: 32px;
+        align-items: center;
+        -webkit-margin-end: 5px;
+        border-radius: 3px;
+        padding: 0;
+      }
+  
+      .ninext-console {
+        bottom: 0px;
+        height: 20%;
+        z-index: 10;
+        position: absolute;
+        background-color: lightgray;
+        width: 100%;
+      }
+  
+  
+      .menuDropbtn {
+        border: none;
+        font-size: 1em;
+        padding: 0px;
+        width: 34px;
+        height: 32px;
+        margin-right: 3px;
+      }
+  
+      .menuDropdown {
+        position: relative;
+        display: inline-block;
+      }
+  
+      .menuDropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+  
+      .menuDropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+  
+      .menuDropdown a:hover {
+        background-color: #ddd;
+      }
+  
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  
+  <body>
+    </style>
+  
+    </head>
+  
+    <body>
+      <div style="white-space: normal;" ; id='exLoadModule'></div>
+  
+      <script>
+        //src='https://raw.githubusercontent.com/codemirror/codemirror5/master/mode/javascript/javascript.js'
+  
+  
+        var GitHubAddress = (window.NinextHostAddress ? window.NinextHostAddress : 'https://raw.githubusercontent.com/JacquesTur/Ninext/main');
+  
+  
+        //Ce module est chargé à l'aide du même code que celui ci-dessous.
+        //Il est appelé comme une fonction avec comme paramètre rootAddress qui indique l'adresse
+        //de base du serveur pour trouver les autres modules.
+  
+        /* rev 1.02 du 18 aout 2022 
+           - fixe random problem of reading modules in synchronous mode. If the server access is fast enough, 
+           the onload and onerror events are not executed. To fix this, I have differentiated the synchronous 
+           and assynchronous module loading functions (loadModuleSync and loadModuleAsync).
+        
+          
+        rev 1.03 du 8 sept 2022
+              - add exFieldsInspector and exDrageablePopup,
+              - fix bug on load Ninext style sheet
+         
+    
+        rev 1.0.4 du 22 sept 2022
+              - add CodeMirror JavaScript mode
+              - improved display of modules version on Ninox dialogBox    
+            
+        rev 1.0.5 du 2 octobre 2022
+              - add load timming on cosole
+            
+        rev 1.0.6 du 5 décembre 2022
+              - add exTableView
+    
+        rev 1.0.7 du 9 décembre 2022
+              - add exLanguage
+  
+        rev 1.0.8 du 23 décembre 2022
+              - add exDebugTracer
+  
+        rev 1.0.8 du 27 décembre 2022
+              - update fieldsInspector and create fieldsEditor
+              */
+  
+        var exModulesVersion = '1.0.8 beta';
+  
+        // Load and manage Ninext style sheet
+        if (!window.Ninext || !window.Ninext.styles)
+          window.Ninext = { styles: document.getElementById('ninexStyles') };
+        window.Ninext.stylesReady = function () {
+          return Array.from(document.styleSheets).find(e => e.ownerNode == document.getElementById('exStyles'))
+        }
+        window.Ninext.UpdateNinexStyles = function () {
+          if (!this.stylesReady())
+            document.getElementsByTagName("head")[0].appendChild(this.styles);
+        }
+  
+        // Load and manage all Ninext modules
+        if (!window.exModules) {
+          window.exModules = (function () {
+            return {
+              version: exModulesVersion,
+              get myDiv() {
+                return document.getElementById('exLoadModule');
+              },
+              log: function (msg) {
+                if (this.myDiv) this.myDiv.innerText += msg + '\n';
+                else console.log(msg);
+              },
+  
+  
+              loadModuleAsync: function (Address, Script) {
+                var rootAdr = Address ? Address : rootAddress
+                var adrScript = rootAdr + '/' + Script;
+                const fileModule = new XMLHttpRequest();
+  
+                fileModule.open('GET', adrScript, true);
+  
+                fileModule.onload = function () {
+  
+                  try {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {
+                        console.log('NINEXT Chargement : ' + adrScript);
+                        var fn = Function('rootAddress', this.responseText);
+                        fn(Address);
+                        console.log('NINEXT script chargé : ' + adrScript);
+                      }
+                    }
+                  } catch (err) {
+                    var msgErr =
+                      err.message + ' à la ligne ' + err.line + ', colonne ' + err.column;
+                    exModules.log('erreur au chargement de ' + Script + ' : ' + err);
+                  }
+                };
+                fileModule.onerror = function (e) {
+                  exModules.log('Request error with status' + e.target.status + ' !');
+                };
+  
+                // Avec le paramètre false dans la fonction open, le send sera exécuté en synchrone,
+                // s'est à dire qu'il n'en sortira qu'apèrs avoir reçu le message retour du serveur et
+                // écouté l'évanement 'load'.
+                console.log('NINEXT GET : ' + adrScript);
+  
+                fileModule.send();
+              },
+  
+              loadModuleSync: function (Address, Script) {
+                var rootAdr = Address ? Address : rootAddress
+                var adrScript = rootAdr + '/' + Script;
+                const fileModule = new XMLHttpRequest();
+  
+                fileModule.open('GET', adrScript, false);
+                console.log('NINEXT GET : ' + adrScript);
+  
+                var start = Date.now();
+  
+                fileModule.send();
+  
+                if (fileModule.status == 200) {
+  
+                  try {
+                    console.log(`NINEXT Chargement (${(Date.now() - start) / 1000}s): ' ${adrScript}`);
+                    var fn = Function('rootAddress', fileModule.responseText);
+                    fn(Address);
+                    console.log(`NINEXT script chargé (${(Date.now() - start) / 1000}s): ${adrScript}`);
+                  }
+  
+                  catch (err) {
+                    var msgErr =
+                      err.message + ' à la ligne ' + err.line + ', colonne ' + err.column;
+                    exModules.log(' erreur au chargement de ' + Script + ' : ' + err);
+                  }
+                }
+                else
+                  exModules.log('Request error with status' + this.status + ' : ' + this.statusText + ' !');
+  
+  
+              },
+            }
+          })();
+  
+          var start = Date.now();
+  
+  
+          if (exModules.myDiv && exModules.myDiv.parentElement.className == "nx-alert-pane")
+            exModules.myDiv.parentElement.style.whiteSpace = "normal";
+  
+          // exemple d'utilitsation :
+          //exModules.loadModuleSync(rootAddress, 'Modules/exUtils.js');
+          exModules.log(`exModules version ${exModules.version} loaded`)
+  
+  
+          if (!window.exUtilsNx) exModules.loadModuleSync(GitHubAddress, 'src/exUtils.js', false);
+          exModules.log(`exUtils version ${exUtilsNx.version} loaded`);
+  
+          if (!window.exFinder) exModules.loadModuleSync(GitHubAddress, 'src/exFinder.js', false);
+          exModules.log(`exFinder version ${exFinder.version} loaded`);
+  
+          exModules.loadModuleSync(GitHubAddress, 'src/CodeMirror/javascript.js', false);
+          exModules.log(`CodeMirror javascript mode loaded`);
+          exModules.log(``);
+  
+  
+          if (window.exConfigLoadModules)
+            window.exConfigModules = exConfigLoadModules;
+          if (!window.exConfigModules)
+            window.exConfigModules = exUtilsNx.extractJSONValueInFieldFn('configLoadModules', 'exLoadModule');
+          if (!window.exConfigModules)
+  
+            window.exConfigModules = {
+              completion: true,
+              badges: true,
+              evalJS: true,
+              tableView: true
+            };
+  
+          if (exConfigModules.completion) exModules.loadModuleSync(GitHubAddress, 'src/exCompletion.js', false);
+          if (window.exAutoCompletion) exModules.log(`exAutoCompletion version ${exAutoCompletion.version} loaded`);
+  
+          if (exConfigModules.badges) exModules.loadModuleSync(GitHubAddress, 'src/exBadges.js', false);
+          if (window.exBadges) exModules.log(`exBadges version ${exBadges.version} loaded`);
+  
+          if (exConfigModules.functions) exModules.loadModuleSync(GitHubAddress, 'src/exFunctions.js', false);
+          if (window.exFunctions) exModules.log(`exFunctions version ${exFunctions.version} loaded`);
+  
+  
+          if (exConfigModules.evalJS) exModules.loadModuleSync(GitHubAddress, 'src/exEvalJS.js', false);
+          if (window.exEvalJS) exModules.log(`exEvalJS version ${exEvalJS.version} loaded`);
+  
+          if (exConfigModules.viewEvent) exModules.loadModuleSync(GitHubAddress, 'src/exViewEvent.js', false);
+          if (window.exViewEvent) exModules.log(`exViewEvent version ${exViewEvent.version} loaded`);
+  
+          if (exConfigModules.buttonEvent) exModules.loadModuleSync(GitHubAddress, 'src/exButtonEvent.js', false);
+          if (window.exButtonEvent) exModules.log(`exButtonEvent version ${exButtonEvent.version} loaded`);
+          /*
+              if (exConfigModules.popupEditor) exModules.loadModuleSync(GitHubAddress, 'src/exPopupEditor.js', false);
+              if (window.exPopupEditor) exModules.log(`exPopupEditor version ${exPopupEditor.version} loaded`);
+          */
+  
+          if (exConfigModules.fieldsInspector || exConfigModules.debugTracer) exModules.loadModuleSync(GitHubAddress, 'src/exDrageablePopup.js', false);
+          if (window.exDrageablePopup) exModules.log(`exDrageablePopup version ${exDrageablePopup.version} loaded`);
+  
+  
+          if (exConfigModules.fieldsInspector) {
+            exModules.loadModuleSync(GitHubAddress, 'src/exFieldsInspector.js', false);
+            exModules.loadModuleSync(GitHubAddress, 'src/exFieldsEditor.js', false);
+          }
+          if (window.exFieldsInspector) exModules.log(`exFieldsInspector version ${exFieldsInspector.version} loaded`);
+  
+          if (exConfigModules.debugTracer) exModules.loadModuleSync(GitHubAddress, 'src/exDebugTracer.js', false);
+          if (window.exDebugTracer) exModules.log(`exDebugTracer version ${exFieldsInspector.version} loaded`);
+  
+  
+          if (exConfigModules.nativeJS) exModules.loadModuleSync(GitHubAddress, 'src/exNativeJS.js', false);
+          if (window.exNativeJS) exModules.log(`exNativeJS version ${exNativeJS.version} loaded`);
+  
+          if (exConfigModules.tableView) exModules.loadModuleSync(GitHubAddress, 'src/exTableView.js', false);
+          if (window.exTableView) exModules.log(`exTableView version ${exTableView.version} loaded`);
+  
+          if (exConfigModules.languages) exModules.loadModuleSync(GitHubAddress, 'src/exLanguages.js', false);
+          if (window.exLanguages) exModules.log(`exLanguage version ${exLanguages.version} loaded`);
+  
+          /*       if (exConfigModules.weekPlanner) exModules.loadModuleSync(GitHubAddress, 'src/exComponents/exWeekPlanner.js', false);
+                if (window.exWeekPlanner) exModules.log(`exWeekPlanner version ${exWeekPlanner.version} loaded`);
+           */
+          if (exModules.myDiv) {
+            exUtilsNx.fireNxFunction('afterLoadModules', 'exLoadModule');
+          }
+  
+          console.log(`Loadding duration : ${(Date.now() - start) / 1000}s`);
+  
+        }
+        else {
+  
+          if (window.exModules) {
+            exModules.log(`exModules version ${exModules.version} already loaded`);
+            if (window.exUtilsNx) exModules.log(`exUtils version ${exUtilsNx.version} already loaded`);
+            if (window.exFinder) exModules.log(`exFinder version ${exFinder.version} already loaded`);
+            if (window.exAutoCompletion) exModules.log(`exAutoCompletion version ${exAutoCompletion.version} already loaded`);
+            if (window.exBadges) exModules.log(`exBadges version ${exBadges.version} already loaded`);
+            if (window.exEvalJS) exModules.log(`exEvalJS version ${exEvalJS.version} already loaded`);
+            if (window.exViewEvent) exModules.log(`exViewEvent version ${exViewEvent.version} already loaded`);
+            if (window.exButtonEvent) exModules.log(`exButtonEvent version ${exButtonEvent.version} already loaded`);
+            if (window.exFieldsInspector) exModules.log(`exFieldsInspector version ${exFieldsInspector.version} already loaded`);
+            if (window.exNativeJS) exModules.log(`exNativeJS version ${exNativeJS.version} already loaded`);
+            if (window.exTableView) exModules.log(`exTableView version ${exTableView.version} already loaded`);
+            if (window.exLanguages) exModules.log(`exLanguages version ${exLanguages.version} already loaded`);
+            //      if (window.exPopupEditor) exModules.log(`exPopupEditor version ${exPopupEditor.version} already loaded`);
+  
+          }
+  
+        }
+        if (window.exModules) {
+          exModules.myDiv.innerHTML += `
+        <br><b>Thanks for use Ninext Project</b> 😃<br>`;
+          exModules.myDiv.innerHTML += `
+        <a style="color: -webkit-link; text-decoration: underline" target='_blank' href='https://github.com/JacquesTur/Ninext'>click here and see more un GitHub</a>`;
+        }
+        Ninext.UpdateNinexStyles();
+  
+        if (exConfigModules && exConfigModules.autoCloseDialog && document.querySelector('.nx-alert')) {
+          var interval = setInterval(() => {
+            var bt = document.querySelector('.nx-alert .nx-button-text');
+            if (bt && window.exConfigModules) {
+              bt.click();
+              clearInterval(interval);
+            }
+          });
+        }
+      </script>
+    </body>

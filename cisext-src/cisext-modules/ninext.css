@@ -1,0 +1,186 @@
+.exCommunBadge {
+    position: absolute;
+    display: flex;
+    top: 0px;
+    right: 0px;
+    background-color: red;
+    height: 15px;
+    line-height: 15px;
+    width: auto;
+    min-width: 11px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    justify-content: center;
+    font-size: smaller;
+}
+
+.exButtonBadge {
+    position: absolute;
+    display: flex;
+    top: 0px;
+    right: 0px;
+    background-color: red;
+    height: 15px;
+    line-height: 15px;
+    width: auto;
+    min-width: 11px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    justify-content: center;
+    font-size: smaller;
+}
+
+.exFieldBadge {
+
+    position: relative;
+    display: inline-flex;
+    top: 0px;
+    right: 0px;
+    background-color: red;
+    height: 15px;
+    line-height: 15px;
+    width: auto;
+    min-width: 11px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    justify-content: center;
+    font-size: smaller;
+    cursor: pointer
+}
+
+;
+
+.exFieldDetailContainer {
+    display: inline-block;
+    visibility: visible;
+    transition: all 0.3s;
+
+}
+
+
+.exFieldDetail {
+    cursor: pointer;
+
+}
+
+.exFieldDetailLevel0 {
+    color: red
+}
+
+.exFieldDetailLevel1 {
+    color: orange
+}
+
+.exFieldDetailLevel2 {
+    color: green
+}
+
+.exFieldSubLine {
+    display: block;
+    transition: all 1000ms ease-out;
+    background-color: beige;
+    white-space: break-spaces;
+}
+
+.caret {
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+  }
+  
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  .caret-down::before {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);  
+  }
+  
+  .ninext-nested {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+
+.window {
+    z-index: 20;
+    border: 1px solid white;
+    background-color: white;
+    min-width: 100px;
+    min-height: 60px;
+    width : 300px;
+    height: 100px;
+
+    position: absolute;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+
+    overflow-Y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+
+    resize: auto;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+
+}
+
+.window .window-bar {
+    width: 100%;
+    position: sticky;
+    top: 0Px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: move;
+    background-color: #666666;
+    color: white;
+    border-radius: 4px;
+    height: auto;
+}
+
+.window-bar .window-title {
+    width: 100%;
+    text-align: center;
+}
+
+
+.window .window-bar .window-close {
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.window-body {
+    margin: 1em;
+    overflow: scroll;
+}
